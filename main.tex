@@ -1,0 +1,112 @@
+% !TeX spellcheck = en_US
+
+\documentclass[12pt]{article}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{array, booktabs}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{subcaption}
+\usepackage[colorlinks,citecolor=green,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref} 
+
+% Custom subtable numbering
+\renewcommand{\thesubtable}{\Alph{subtable}}
+\makeatletter
+\renewcommand{\p@subtable}{} % Removes the parent table number
+\makeatother
+
+% Autoref settings
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\figureautorefname}{Figure}
+\renewcommand{\tableautorefname}{Table}
+% \renewcommand{\subtableautorefname}{part}
+
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.2}
+\numberwithin{equation}{section}
+
+\newcommand{\caseA}{(a)} % Custom reference for case (a)
+\newcommand{\caseB}{(b)} % Custom reference for case (b)
+\newcommand{\caseC}{(c)} % Custom reference for case (c)
+\newcommand{\caseD}{(d)} % Custom reference for case (d)
+\newcommand{\caseE}{(e)} % Custom reference for case (e)
+\newcommand{\caseF}{(f)} % Custom reference for case (f)
+
+
+\usepackage{acro}
+
+\DeclareAcronym{RBI}{
+    short = RBI,
+    long = Indian Reserve Bank
+}
+\DeclareAcronym{IRDAI}{
+    short = IRDAI,
+    long =  Insurance Regulation and Development Authority of India
+}
+\DeclareAcronym{IC}{
+    short = IC,
+    long = insurance company
+}
+\DeclareAcronym{PEPP}{
+    short = PEPP,
+    long = pan-European Personal Pension Product 
+}
+\DeclareAcronym{EVaR}{
+    short = EVaR,
+    long = expected value-at-risk
+}
+\DeclareAcronym{VaR}{
+    short = VaR,
+    long = value-at-risk
+}
+
+
+
+\title{Portability regulation: Impact on banks and insurers}
+
+\author{%
+	Jiahua Xu\footnote{University College London}
+	\and Peter Zweifel\footnote{University of Zurich}
+}
+
+\date{\today}
+
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+\input{Sections/abstract}
+
+\newpage
+
+
+\input{Sections/intro}
+\input{Sections/impactbank}
+\input{Sections/impactins}
+\input{Sections/conclusion}
+\appendix
+\section{Appendix} \label{sec:appendix}
+\input{Sections/appendix_banks}
+\input{Sections/appendix_insurance_companies}
+
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\begin{appendix}
+%\input{packet_short}
+\end{appendix}
+
+\end{document}

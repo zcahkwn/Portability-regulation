@@ -1,0 +1,71 @@
+\subsection{Insurance companies}
+\label{sec:insurance_companies}
+Elasticities and sign and magnitude of $dV^* / dT$
+
+For the elasticity notation of \autoref{eq:dRIC} in the text, one obtains
+
+
+\begin{align}
+\frac{dR^{IC}}{dT} &= 
+\frac{\left\{ 
+    (1 + kr_I) 
+    \left( 
+        \frac{\partial P}{\partial V} \frac{dV^*}{dT} + \frac{\partial P}{\partial T} \right)- \frac{\partial L}{\partial T} 
+    \right\}
+    C - \{(1 + k_I)P - L\} \frac{\partial C}{\partial V} \frac{dV^*}{dT} 
+}{C^2} \nonumber \\[10pt]
+&= (1+kr_I)\frac{1}{C} 
+\left( 
+    \frac{\partial P}{\partial V} \frac{V}{P} \cdot \frac{P}{V}\cdot \frac{dV^*}{dT}\frac{T}{V}\frac{V}{T} + \frac{\partial P}{\partial T} \frac{T}{P} \cdot \frac{P}{T}
+\right) 
+- \frac{1}{C}\cdot \frac{\partial L}{\partial T}\frac{T}{L}\cdot \frac{L}{T} \nonumber \\[10pt]
+& \quad - \frac{\{ (1 + k_I) P - L\}
+\frac{\partial C}{\partial V} \frac{V}{C} \cdot \frac{C}{V}\cdot \frac{dV^*}{dT}\frac{T}{V} \cdot \frac{V}{T} }{C^2} \nonumber \\[10pt]
+&= (1 + kr_I) \frac{P}{C T} 
+\bigg\{ 
+    e(P, V) \cdot e(V^*, T) + e(P, T) - \frac{1}{1 + kr_I} e(L, T) \frac{L}{P} 
+\bigg\} \nonumber \\[10pt]
+&\quad - \frac{1}{C T} 
+\{(1 + k_I) P - L \} 
+e(C, V) \cdot e(V^*, T), \label{eq:A_dRIC}
+\end{align}
+
+
+\noindent with $e(C,V):= (\partial C / \partial V)(V/C)>0$, $e(P,V):= (\partial P / \partial V)(V/P)>0$, $e(L,T):= (\partial L / \partial T)(T/L)>0$, $e(P,T):= (\partial P / \partial T)(T/P)$, with signs determined according to \autoref{eq:RIC}, and wth sign of $e(V^*,T)$ to be determined below. 
+
+The FOC derived from \autoref{eq:RIC} reads,
+
+\begin{align}
+\frac{dR^{IC}}{dV} &= 
+\frac{\bigg\{ (1 + k_I) \dfrac{\partial P}{\partial V} \bigg\} C(V) - \left\{ (1 + k_I) P(V, T) - L(T) \right\} \dfrac{\partial C}{\partial V}}{C^2} \nonumber\\[10pt]
+&= \left\{ (1 + k_I) \frac{\partial P}{\partial V} \right\} C(V) - \left\{ (1 + kr_I) P(V, T) - L(T) \right\} \frac{\partial C}{\partial V} = 0. \label{eq:A.9}
+\end{align}
+
+\noindent after multiplication by $C^2>0$. In analogy to the comparative-static equation (\autoref{eq:A_dRB_pde}), one has 
+
+\begin{align}
+\frac{dV^*}{dT} &= -\dfrac{\dfrac{\partial^2 R^{IC}}{\partial V \partial T}}{\dfrac{\partial^2 R^{IC}}{\partial V^2}} \nonumber \\[10pt]
+&= \frac{
+    -\left\{ (1 + k_I) \dfrac{\partial P}{\partial V} \right\} \dfrac{\partial C}{\partial V} \cdot \dfrac{dV^*}{dT} 
+    + \bigg\{ (1 + k_I) \left( \dfrac{\partial P}{\partial V}\cdot \dfrac{dV^*}{dT} + \dfrac{\partial P}{\partial T} \right) 
+    - \dfrac{\partial L}{\partial T} \bigg\} \dfrac{\partial C}{\partial V}
+}{\Psi}. \label{eq:A_dV*_pde}
+\end{align}
+
+
+\noindent since all second-order derivatives are zero by assumption and with $\Psi := \partial^2 R^{IC} / \partial V^2 <0$ for a maximum. \autoref{eq:A_dV*_pde} can be simplified to become 
+
+\begin{equation}
+    \frac{dV^*}{dT}=\frac{\bigg\{ (1+kr_I)\dfrac{\partial P}{\partial T}-\dfrac{\partial L}{\partial T}\bigg\}\dfrac{\partial C}{\partial V}}{\Psi} .\label{eq:A_dV*_simplified}
+\end{equation}
+
+The sign of the numerator of \autoref{eq:A_dV*_simplified} depends on the signs of $\partial P / \partial T$ and $\partial L / \partial T$, which are both positive if the initial solvency level of the company is above the benchmark [see \autoref{eq:RIC} of the text again]. However, the bracket is positive since $\partial P / \partial T > 0 \cong \partial L / \partial T$ while typically $k>1$. Conversely, for a company with an initial solvency level below the benchmark, the numerator is negative since $\partial P / \partial T < 0 \cong \partial L / \partial T$. One has therefore
+
+\begin{equation}
+    \frac{dV^*}{dT}= \begin{cases}
+        &< 0 \text{ if } V>\bar{V} \\
+        &> 0 \text{ if } V<\bar{V}
+    \end{cases} \label{eq:A_dV*}
+\end{equation}
+
+These predictions [reported in \autoref{eq:dV*} of the text] do not depend on equity capital $C$, in contrast with those for banks in \autoref{eq:A_dS*}, underlining the difference in the two business models.

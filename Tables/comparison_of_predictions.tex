@@ -1,0 +1,66 @@
+\begin{table}[h!]
+\centering
+\caption{Comparison of predictions} \label{tab:predictions_compare}
+\scriptsize
+% \renewcommand{\arraystretch}{2}
+    \begin{subtable}{\textwidth}
+        \captionsetup{justification=raggedright, singlelinecheck=false,font=small}
+        \caption{Basic effects} \label{tab:basic_effect}
+        \renewcommand{\arraystretch}{2}
+        \scriptsize
+        \begin{tabular}{|p{7cm}|p{7cm}|}
+            \hline 
+            \textbf{Banks} & \textbf{Insurers} \\ \hline
+            $\frac{dS^*}{dT}=\begin{cases}
+                < 0 & \text{if } S > \bar{S}, \\ 
+                > 0 & \text{if } S < \bar{S}.
+            \end{cases}$ 
+            & $\frac{dV^*}{dT}= \begin{cases}
+                < 0 & \text{if } V > \bar{V}, \\ 
+                > 0 & \text{if } V < \bar{V}.
+            \end{cases}$ \\ \hline 
+            $\frac{dR^B}{dT}=\begin{cases} 
+                \gg 0 & \text{if } C \to 0 \text{ and } S > \bar{S} \quad \text{(a)}, \\ 
+                \ll 0 &\text{if } C \to 0 \text{ and } S < \bar{S} \quad \text{(b)}\label{eq:b}, \\ 
+                \to 0 & \text{if } D \to 0 \hspace{1.75cm}
+                \text{(c)}.
+                \end{cases}$ 
+            & $\frac{dR^{IC}}{dT}=\begin{cases} 
+                \ll 0 & \text{if } C \to 0 \text{ and } V > \bar{V} \quad \text{(a')}, \\ 
+                \gg 0 & \text{if } C \to 0 \text{ and } V < \bar{V} \quad \text{(b')}.
+            \end{cases}$ \\ \hline
+            $\frac{dR^B}{dT}=\begin{cases} 
+                \geq 0 & \text{if } C \to \infty \text{ and } S > \bar{S} \quad \text{(d)}, \\ 
+                \leq 0 & \text{if } C \to \infty \text{ and } S < \bar{S} \quad \text{(e)}, \\ 
+                \to 0 & \text{if } D \to 0 \hspace{1.9cm} \text{(f)}.
+            \end{cases}$ 
+            & $\frac{dR^{IC}}{dT}=\begin{cases} 
+                \leq 0 & \text{if } C \to \infty \text{ and } V > \bar{V} \quad \text{(d')}, \\ 
+                \geq 0 & \text{if } C \to \infty \text{ and } V < \bar{V} \quad \text{(e')}.
+            \end{cases}$ \\ \hline 
+        \end{tabular}
+    \end{subtable}
+    
+    \vspace{5mm}
+    \begin{subtable}{\textwidth}
+        \captionsetup{justification=raggedright, singlelinecheck=false, font=small}
+        \caption{Amplifying effects: The effect of portability on profitability is the more marked, …} \label{tab:amplifying_effects}
+        \renewcommand{\arraystretch}{2}
+        \scriptsize
+        \begin{tabular}{|p{7cm}|p{7cm}|}
+            \hline 
+            \textbf{Banks} & \textbf{Insurers} \\ \hline 
+            The smaller the bank's equity capital $C$ & -- \\ \hline 
+            The lower its initial degree of portability $T$ & The lower the initial level of portability $T$ (which is very low for ICs to begin with) \\ \hline 
+            The higher the rate of interest $r_D$ paid on deposits & -- \\ \hline 
+            The higher its interest margin $(r_I-r_D)$& --\\ \hline 
+            The stronger the reaction of depositors to a change in solvency $e(D,S)$ & The stronger the reaction of policyholders to a change in solvability $e(P,V)$ \\ \hline 
+            -- & The more strongly losses react to the increase in portability $e(L,T)$ \\ \hline 
+            The higher $|e(S^*,T)|$, i.e. the more marked the bank's solvency response to increased portability & The higher $|e(V^*,T)|$, i.e. the more marked the insurer's solvability response to increased portability \\ \hline 
+            The stronger the reaction of investor to a change in solvency $e(C,S)$ & The stronger the reaction of investors to a change in solvability $e(C,V)$ \\ \hline 
+            The stronger the reaction of depositors to the increase in portability $e(D,T)$, provided $e(S^*,T)>0$ & The stronger the reaction of policyholders to the increase in portability $e(P,T)$ \\ \hline 
+            -- & The higher the funds generating factor $k$, i.e. more the risk portfolio is of the long-tail type, compounded by a high rate of return on investment $r_I$ \\ \hline 
+            -- & The higher the loss ratio $L/P$ \\ \hline
+        \end{tabular}
+    \end{subtable}
+\end{table}
