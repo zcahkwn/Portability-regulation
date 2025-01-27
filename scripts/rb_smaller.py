@@ -2,9 +2,6 @@ from pathlib import Path
 from portability_env.settings import PLOT_PATH
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import cm
-
-# when S < sbar
 
 
 # Function to compute R^B values
@@ -16,17 +13,16 @@ def compute_R(b2, a2, b4, a4, b3, rI, a3, a, S, T):
     return R_B
 
 
-def plot_RB(s_smaller, c_to_0, save_path=None):
+# Function to plot R^B for given parameter sets
+def plot_RB(params_1, params_2, label_1, label_2, save_path=None):
     T = np.linspace(0, 1, 100)  # range of T values
 
-    S_smaller = compute_R(T=T, **s_smaller)
-    C_to_0 = compute_R(T=T, **c_to_0)
-    C_to_inf = compute_R(T=T, **c_to_inf)
+    values_1 = compute_R(T=T, **params_1)
+    values_2 = compute_R(T=T, **params_2)
 
     fig, ax = plt.subplots(figsize=(8, 6))
-    ax.plot(T, S_smaller, label="S > sbar", color="blue")
-    ax.plot(T, C_to_0, label="S>sbar, C -> 0", color="green")
-    ax.plot(T, C_to_inf, label="S>sbar, C -> inf", color="orange", linestyle="--")
+    ax.plot(T, values_1, label=label_1, color="blue")
+    ax.plot(T, values_2, label=label_2, linestyle="--")
     ax.set_title("R^B when S < sbar")
     ax.set_xlabel("T")
     ax.set_ylabel("R^B")
@@ -38,7 +34,6 @@ def plot_RB(s_smaller, c_to_0, save_path=None):
         plt.show()
 
 
-# Parameters for different lines
 s_smaller = {
     "b2": 2,
     "a2": 5.5,
@@ -75,9 +70,38 @@ c_to_inf = {
     "S": 0.5,
 }
 
-# Call the function to plot both lines
+d_to_0 = {
+    "b2": 2,
+    "a2": 5.5,
+    "b4": 0.001,
+    "a4": 0,
+    "b3": 0.1,
+    "rI": 0.9,
+    "a3": 0.1,
+    "a": 0,
+    "S": 0.5,
+}
+
 plot_RB(
     s_smaller,
     c_to_0,
-    save_path=PLOT_PATH / "s_smaller_b.png",
+    "S < sbar",
+    "S < sbar, C -> 0",
+    save_path=PLOT_PATH / "s_smaller_c_0.png",
+)
+
+plot_RB(
+    s_smaller,
+    c_to_inf,
+    "S < sbar",
+    "S < sbar, C -> inf",
+    save_path=PLOT_PATH / "s_smaller_c_inf.png",
+)
+
+plot_RB(
+    s_smaller,
+    d_to_0,
+    "S < sbar",
+    "S < sbar, D -> 0",
+    save_path=PLOT_PATH / "s_smaller_d_0.png",
 )

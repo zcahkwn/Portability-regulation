@@ -2,9 +2,6 @@ from pathlib import Path
 from portability_env.settings import PLOT_PATH
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import cm
-
-# When S < sbar
 
 
 # Function to compute R^IC values
@@ -24,17 +21,16 @@ def compute_R(a1, a2, a3, a4, a6, b1, b3, b4, rI, rG, T, k, V):
     return R_IC
 
 
-def plot_RIC(v_smaller, c_to_0, save_path=None):
+# Function to plot R^IC for given parameter sets
+def plot_RIC(params_1, params_2, label_1, label_2, save_path=None):
     T = np.linspace(0, 1, 100)  # range of T values
 
-    V_smaller = compute_R(T=T, **v_smaller)
-    C_to_0 = compute_R(T=T, **c_to_0)
-    C_to_inf = compute_R(T=T, **c_to_inf)
+    values_1 = compute_R(T=T, **params_1)
+    values_2 = compute_R(T=T, **params_2)
 
     fig, ax = plt.subplots(figsize=(8, 6))
-    ax.plot(T, V_smaller, label="V < vbar", color="blue")
-    ax.plot(T, C_to_0, label="V<vbar, C -> 0", color="green")
-    ax.plot(T, C_to_inf, label="V<vbar, C -> inf", color="orange", linestyle="--")
+    ax.plot(T, values_1, label=label_1, color="blue")
+    ax.plot(T, values_2, label=label_2, linestyle="--")
     ax.set_title("R^IC when V < vbar")
     ax.set_xlabel("T")
     ax.set_ylabel("R^IC")
@@ -45,8 +41,6 @@ def plot_RIC(v_smaller, c_to_0, save_path=None):
     else:
         plt.show()
 
-
-# Parameters for different lines
 
 v_smaller = {
     "a1": 6.8,
@@ -93,9 +87,18 @@ c_to_inf = {
     "V": 0.5,
 }
 
-# Call the function to plot both lines
 plot_RIC(
     v_smaller,
     c_to_0,
-    save_path=PLOT_PATH / "v_smaller_ic.png",
+    "V < vbar",
+    "V < vbar, C -> 0",
+    save_path=PLOT_PATH / "v_smaller_c_0.png",
+)
+
+plot_RIC(
+    v_smaller,
+    c_to_inf,
+    "V < vbar",
+    "V < vbar, C -> inf",
+    save_path=PLOT_PATH / "v_smaller_c_inf.png",
 )
